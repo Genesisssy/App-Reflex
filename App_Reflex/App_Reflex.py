@@ -1,34 +1,44 @@
-"""Welcome to Reflex! This file outlines the steps to create a basic app."""
-
 import reflex as rx
-
-from rxconfig import config
 
 
 class State(rx.State):
-    """The app state."""
+    texto = "Haz clic en el botón"
+
+    def cambiar_texto(self):
+        self.texto = "¡Gracias por visitar mi página!"
 
 
-def index() -> rx.Component:
-    # Welcome Page (Index)
-    return rx.container(
-        rx.color_mode.button(position="top-right"),
+def index():
+    return rx.center(
         rx.vstack(
-            rx.heading("Welcome to Reflex!", size="9"),
+            rx.heading(
+                "Mi Página Web",
+                size="7",
+                color="blue"
+            ),
+
             rx.text(
-                "Get started by editing ",
-                rx.code(f"{config.app_name}/{config.app_name}.py"),
-                size="5",
+                "Bienvenido a mi proyecto en Reflex.",
+                font_size="20px"
             ),
-            rx.link(
-                rx.button("Check out our docs!"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
-                is_external=True,
+
+            rx.text(
+                State.texto,
+                color="gray"
             ),
+
+            rx.button(
+                "Presionar",
+                on_click=State.cambiar_texto,
+                color_scheme="blue"
+            ),
+
             spacing="5",
-            justify="center",
-            min_height="85vh",
+            padding="20px",
+            border="1px solid #ccc",
+            border_radius="10px",
         ),
+        height="100vh",
     )
 
 
