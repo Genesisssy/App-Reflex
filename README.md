@@ -77,6 +77,6 @@ http://localhost:3000
 
 ---
 
-# 👩‍💻 Autor
+# 👩‍💻 Genesis Almanzar 
 
 Proyecto desarrollado utilizando Reflex y Python.
